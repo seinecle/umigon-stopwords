@@ -1,0 +1,4 @@
+--patch-module
+net.clementlevallois.stopwords=_
+--add-reads
+net.clementlevallois.stopwords=ALL-UNNAMED
