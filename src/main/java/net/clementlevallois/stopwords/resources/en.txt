@@ -428,6 +428,8 @@ how
 how's
 howbeit
 however
+http
+https
 hundred
 i
 i'd

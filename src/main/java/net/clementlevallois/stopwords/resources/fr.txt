@@ -339,6 +339,8 @@ histoire
 ho
 holà
 hors
+http
+https
 hui
 huit
 huitième

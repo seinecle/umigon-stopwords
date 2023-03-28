@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
         <groupId>net.clementlevallois.functions</groupId>
     <artifactId>umigon-stopwords</artifactId>
-    <version>0.10</version>
+    <version>0.11</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -12,7 +12,7 @@
     </properties>
 
 
-    <name>uumigon-stopwords</name>
+    <name>umigon-stopwords</name>
     <description>stopwords and related operations for essential text mining functions in the umigon-family suite of tools</description>
     <url>https://github.com/seinecle/umigon-stopwords</url>
     <inceptionYear>2021</inceptionYear>
@@ -59,18 +59,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.ow2.asm</groupId>
-                        <artifactId>asm</artifactId>
-                        <version>9.4</version>
-                    </dependency>
-                </dependencies>
-            </plugin>        
         </plugins>
     </build>
     <!-- Profile to publish to Maven Central-->
@@ -81,7 +69,7 @@
                 <altDeploymentRepository>local::file:./target/staging-deploy</altDeploymentRepository>
             </properties>            
             <build>
-                <defaultGoal>deploy</defaultGoal>
+                <defaultGoal>clean deploy</defaultGoal>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
