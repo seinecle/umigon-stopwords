@@ -17,6 +17,10 @@ Stopwords in many languages and sophisticated stopwords removal methods for ngra
 
 implementation group: 'net.clementlevallois.functions', name: 'umigon-stopwords', version: 'put the latest version here'
 
+* 2023, March 28: version 0.12
+
+Fixes a critical issue with files containing stopwords being ignored because of a malformed pom. Moving the resource files to the resources folder is a better practice.
+
 * 2023, March 28: version 0.11
 
 Adds 'https' as an annoying stopword to remove (English and French only at the moment)

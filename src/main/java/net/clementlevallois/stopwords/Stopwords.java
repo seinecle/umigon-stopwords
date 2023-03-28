@@ -15,7 +15,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Stream;
-import net.clementlevallois.stopwords.resources.PlaceHolder;
 
 /*
  Copyright 2008-2013 Clement Levallois
@@ -59,7 +58,7 @@ import net.clementlevallois.stopwords.resources.PlaceHolder;
 public class Stopwords {
 
     private static final String[] twitterStopWords = {"rt", "w/"};
-    private static final String[] commonStopWords = {"and", "for", "nbsp", "http", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "20", "25", "30", "40", "50", "100", "1000"};
+    private static final String[] commonStopWords = {"and", "for", "nbsp", "http", "https", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "20", "25", "30", "40", "50", "100", "1000"};
 
     private static Map<String, Map<String, Set<String>>> cache = new HashMap();
     private static Map<String, Set<String>> cacheTwitter = new HashMap();
@@ -103,9 +102,9 @@ public class Stopwords {
             shortStopWords.add(twitterStopWord);
         }
 
-        resource = PlaceHolder.class.getResource(lang + ".txt");
+        resource = Stopwords.class.getResource(lang + ".txt");
         if (resource != null) {
-            inputStream = PlaceHolder.class.getResourceAsStream(lang + ".txt");
+            inputStream = Stopwords.class.getResourceAsStream(lang + ".txt");
             try {
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
                 Stream<String> lines = br.lines();
@@ -115,9 +114,9 @@ public class Stopwords {
                 e.printStackTrace();
             }
         }
-        resource = PlaceHolder.class.getResource(lang + "_short.txt");
+        resource = Stopwords.class.getResource(lang + "_short.txt");
         if (resource != null) {
-            inputStream = PlaceHolder.class.getResourceAsStream(lang + "_short.txt");
+            inputStream = Stopwords.class.getResourceAsStream(lang + "_short.txt");
             try {
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
                 Stream<String> lines = br.lines();
@@ -142,9 +141,9 @@ public class Stopwords {
         InputStream inputStream;
         URL resource;
 
-        resource = PlaceHolder.class.getResource(lang + "_stopword_sentiment.txt");
+        resource = Stopwords.class.getResource(lang + "_stopword_sentiment.txt");
         if (resource != null) {
-            inputStream = PlaceHolder.class.getResourceAsStream(lang + "_stopword_sentiment.txt");
+            inputStream = Stopwords.class.getResourceAsStream(lang + "_stopword_sentiment.txt");
             try {
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
                 Stream<String> lines = br.lines();
@@ -164,9 +163,9 @@ public class Stopwords {
         InputStream inputStream;
         URL resource;
 
-        resource = PlaceHolder.class.getResource("scientificstopwords_en.txt");
+        resource = Stopwords.class.getResource("scientificstopwords_en.txt");
         if (resource != null) {
-            inputStream = PlaceHolder.class.getResourceAsStream("scientificstopwords_en.txt");
+            inputStream = Stopwords.class.getResourceAsStream("scientificstopwords_en.txt");
             try {
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
                 Stream<String> lines = br.lines();
@@ -186,9 +185,9 @@ public class Stopwords {
         InputStream inputStream;
         URL resource;
 
-        resource = PlaceHolder.class.getResource("scientificstopwords_fr.txt");
+        resource = Stopwords.class.getResource("scientificstopwords_fr.txt");
         if (resource != null) {
-            inputStream = PlaceHolder.class.getResourceAsStream("scientificstopwords_fr.txt");
+            inputStream = Stopwords.class.getResourceAsStream("scientificstopwords_fr.txt");
             try {
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
                 Stream<String> lines = br.lines();
@@ -208,9 +207,9 @@ public class Stopwords {
         InputStream inputStream;
         URL resource;
 
-        resource = PlaceHolder.class.getResource("twitter_long.txt");
+        resource = Stopwords.class.getResource("twitter_long.txt");
         if (resource != null) {
-            inputStream = PlaceHolder.class.getResourceAsStream("twitter_long.txt");
+            inputStream = Stopwords.class.getResourceAsStream("twitter_long.txt");
             try {
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
                 Stream<String> lines = br.lines();
@@ -220,9 +219,9 @@ public class Stopwords {
                 e.printStackTrace();
             }
         }
-        resource = PlaceHolder.class.getResource("twitter_short.txt");
+        resource = Stopwords.class.getResource("twitter_short.txt");
         if (resource != null) {
-            inputStream = PlaceHolder.class.getResourceAsStream("twitter_short.txt");
+            inputStream = Stopwords.class.getResourceAsStream("twitter_short.txt");
             try {
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
                 Stream<String> lines = br.lines();
@@ -261,9 +260,9 @@ public class Stopwords {
         InputStream inputStream;
         URL resource;
 
-        resource = PlaceHolder.class.getResource("stopwords_all_languages.txt");
+        resource = Stopwords.class.getResource("stopwords_all_languages.txt");
         if (resource != null) {
-            inputStream = PlaceHolder.class.getResourceAsStream("stopwords_all_languages.txt");
+            inputStream = Stopwords.class.getResourceAsStream("stopwords_all_languages.txt");
             try {
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
                 Stream<String> lines = br.lines();
