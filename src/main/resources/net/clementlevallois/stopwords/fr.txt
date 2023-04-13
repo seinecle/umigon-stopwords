@@ -454,6 +454,7 @@ nombreux
 non
 normal
 nos
+notamment
 notre
 nous
 nous-mêmes
@@ -758,8 +759,10 @@ voit
 vont
 vos
 votre
+vôtre
 vous
 vous-mêmes
+vous-memes
 vraiment
 vu
 w

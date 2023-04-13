@@ -1,21 +1,24 @@
-# Umigon
-A family of modules for essential NLP tasks and sentiment analysis, done well.
-
 # umigon-stopwords
 Stopwords in many languages and sophisticated stopwords removal methods for ngrams.
 
-# Releases
-**Maven**
+## Installation
 
+This is a dependency free, 112Mb jar:
+
+```xml
 <dependency>
-    <groupId>net.clementlevallois.functions</groupId>
-    <artifactId>umigon-stopwords</artifactId>
-    <version>put the latest version here</version>
+	<groupId>net.clementlevallois.functions</groupId>
+	<artifcactId>umigon-stopwords</artifactId>
+	<version>0.13</version>
 </dependency>
+```
 
-**Gradle**
+Or [check on Maven](https://central.sonatype.com/artifact/net.clementlevallois.functions/umigon-stopwords) to see the latest version.
 
-implementation group: 'net.clementlevallois.functions', name: 'umigon-stopwords', version: 'put the latest version here'
+
+* 2023, April 13: version 0.13
+
+Added more words to the list of English stopwords of the scientific discourse
 
 * 2023, March 28: version 0.12
 
@@ -30,7 +33,51 @@ Adds 'https' as an annoying stopword to remove (English and French only at the m
 Initial release
 
 
-# Lists of stopwords
+## Usage
+```java
+
+// initialization: loading stopwords for a given language.
+
+String selectedLanguage = "en";
+Set<String> stopwords = Stopwords.getStopWords(selectedLanguage).get("long");
+
+StopWordsRemover stopWordsRemover = new StopWordsRemover(minCharNumber, selectedLanguage);
+
+Set<String> userSuppliedStopwords = Set.of("lorem", "ipsum");
+boolean replaceStopwords = false;
+
+stopWordsRemover.useUSerSuppliedStopwords(userSuppliedStopwords, replaceStopwords);
+
+if (isScientificCorpus) {
+	if (selectedLanguage.equals("en")) {
+		Set<String> scientificStopwordsInEnglish = Stopwords.getScientificStopwordsInEnglish();
+		stopWordsRemover.addFieldSpecificStopWords(scientificStopwordsInEnglish);
+	}
+	if (selectedLanguage.equals("fr")) {
+		Set<String> scientificStopwordsInFrench = Stopwords.getScientificStopwordsInFrench();
+		stopWordsRemover.addFieldSpecificStopWords(scientificStopwordsInFrench);
+	}
+}
+stopWordsRemover.addWordsToRemove(new HashSet());
+stopWordsRemover.addStopWordsToKeep(new HashSet());
+
+// 2. Run
+
+String testWord_1 = "of";
+boolean removeIt_1 = stopWordsRemover.shouldItBeRemoved(testWord_1);
+// removeIt_1 will evaluate to "true";
+
+String testWord_2 = "United States of America";
+boolean removeIt_2 = stopWordsRemover.shouldItBeRemoved(testWord_2);
+// removeIt_2 will evaluate to "false";
+
+String testWord_3 = "States of";
+boolean removeIt_3 = stopWordsRemover.shouldItBeRemoved(testWord_3);
+// removeIt_3 will evaluate to "true";
+
+```
+
+### Lists of stopwords
 - in multiple languages  
 - with lists of stopwords for academic types of literature and Twitter
 
@@ -41,8 +88,6 @@ These stopwords have been curated "by hand" across a long period of time. Terms 
 ### Stopwords for the academic literature in French
 This list is currently under construction, but works already pretty well.
 
-### Use
-These lists are extremely useful when following a ngram type of approach in topic detection or semantic network analysis.
 
 ### Origin?
 This function is developed by Clement Levallois, in support of academic work published [in various places](https://scholar.google.fr/citations?user=r0R0vekAAAAJ&hl=en). It is now used in support of [a web app providing free text analysis for non coders](https://nocodefunctions.com).

@@ -294,6 +294,8 @@ calibration
 called
 can
 capable
+capabilities
+capability
 capacity
 capture
 captured
@@ -811,6 +813,8 @@ disseminatting
 disseminatt
 dissociable
 dissociated
+distance
+distances
 distinct
 distinguish
 distinguishe
@@ -867,6 +871,8 @@ efficacy
 efficiency
 efficient
 efficiently
+effort
+efforts
 eg
 elaborate
 elaborating
@@ -946,6 +952,8 @@ entered
 entering
 entity
 entry
+environment
+environments
 envisage
 equal
 equally
@@ -1602,7 +1610,10 @@ manners
 manual
 mappe
 mapped
+map
+maps
 mapping
+mappings
 margin
 marke
 marker
@@ -1835,7 +1846,10 @@ partnership
 passive
 path
 pattern
+pay
 peak
+peer
+peers
 penetrance
 perceive
 perceives
@@ -2081,6 +2095,8 @@ reasons
 receive
 recent
 recently
+recipient
+recipients
 recommend
 recommendation
 recogniz
@@ -2229,12 +2245,17 @@ roadmap
 role
 roles
 route
+rule
+ruled
+rules
+ruling
 salience
 salient
 sampl
 sample
 sampling
 scal
+scalable
 scale
 scaled
 scaling
@@ -2251,6 +2272,9 @@ science
 scientist
 scientific
 scope
+score
+scored
+scoring
 search
 searche
 second
@@ -2397,6 +2421,8 @@ statistics
 stature
 status
 stemming
+step
+steps
 stimulate
 stimulated
 stimulating
@@ -2624,6 +2650,8 @@ unify
 unimportant
 uninformed
 unique
+uniquely
+uniqueness
 unit
 universal
 university

@@ -65,8 +65,8 @@ public class Stopwords {
 
     public static void main(String args[]) {
         try {
-            Stopwords app = new Stopwords();
-            InputStream fileFromResourceAsStream = app.getInputStreamFromResource("twitter/en.txt");
+            InputStream fileFromResourceAsStream = Stopwords.class.getResourceAsStream("twitter_en.txt");
+
             BufferedReader br = new BufferedReader(new InputStreamReader(fileFromResourceAsStream));
             String readLine = br.readLine();
             System.out.println("line: " + readLine);
@@ -232,20 +232,6 @@ public class Stopwords {
             }
         }
         return words;
-    }
-
-    private InputStream getInputStreamFromResource(String fileName) {
-
-        // The class loader that loaded the class
-        ClassLoader classLoader = getClass().getClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream(fileName);
-
-        // the stream holding the file content
-        if (inputStream == null) {
-            throw new IllegalArgumentException("file not found! " + fileName);
-        } else {
-            return inputStream;
-        }
     }
 
     public static Set<String> getStopwordsValidForAllLanguages() {

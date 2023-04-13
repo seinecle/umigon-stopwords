@@ -768,6 +768,7 @@ relatively
 replace
 report
 represent
+representative
 require
 research
 respect
@@ -798,6 +799,8 @@ saw
 say
 saying
 says
+scarce
+script
 sec
 second
 secondly
