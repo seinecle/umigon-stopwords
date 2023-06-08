@@ -864,6 +864,8 @@ easy
 easily
 edge
 edition
+effect
+effects
 effective
 effectively
 effectiveness
@@ -1055,6 +1057,7 @@ explained
 explaining
 explaination
 explanation
+explanatory
 explicate
 explicated
 explicates
@@ -1601,6 +1604,7 @@ man
 manage
 managed
 managing
+manifest
 manipulate
 manipulated
 manipulating
@@ -1906,6 +1910,7 @@ positive
 positively
 possibility
 post
+posts
 posterior
 potential
 potentially
@@ -2440,6 +2445,7 @@ strip
 stress
 strong
 stronger
+strongest
 strongly
 structural
 structur
@@ -2562,6 +2568,8 @@ theoretical
 theoretically
 theories
 theory
+theorize
+theorise
 thereby
 thesis
 they
@@ -2630,6 +2638,8 @@ uncovere
 uncovered
 uncovering
 undergo
+underexplore
+underexplored
 underlie
 underly
 underlying
@@ -2660,6 +2670,10 @@ unlikely
 unprecedent
 unprecedented
 unrelated
+user
+users
+using
+used
 unwant
 unwanted
 update

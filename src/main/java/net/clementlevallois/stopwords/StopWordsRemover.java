@@ -17,8 +17,6 @@ import java.util.Set;
  */
 public final class StopWordsRemover {
 
-    private String entryWord;
-    private boolean multipleWord;
     private int minWordLength;
 
     private final int maxAcceptedGarbage = 3;
@@ -110,6 +108,8 @@ public final class StopWordsRemover {
     }
 
     public boolean shouldItBeRemoved(String term) {
+        String entryWord;
+        boolean multipleWord;
 
         boolean write = true;
         entryWord = term;
