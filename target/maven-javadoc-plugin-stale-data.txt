@@ -2,7 +2,7 @@
 @packages
 @argfile
 --module-path
-'C:/Users/levallois/open/nocode-app-functions/umigon-stopwords/target/umigon-stopwords-0.12.jar'
+'C:/Users/levallois/open/nocode-app-functions/umigon-stopwords/target/umigon-stopwords-0.14.jar'
 --patch-module
 net.clementlevallois.stopwords='C:/Users/levallois/open/nocode-app-functions/umigon-stopwords/src/main/java;C:/Users/levallois/open/nocode-app-functions/umigon-stopwords/target/generated-sources/annotations'
 -encoding
@@ -22,28 +22,31 @@ net.clementlevallois.stopwords='C:/Users/levallois/open/nocode-app-functions/umi
 -docencoding
 'UTF-8'
 -doctitle
-'umigon-stopwords 0.12 API'
+'umigon-stopwords 0.14 API'
 -linkoffline
 'https://docs.oracle.com/en/java/javase/11/docs/api' 'C:/Users/levallois/open/nocode-app-functions/umigon-stopwords/target/javadoc-bundle-options'
 -use
 -version
 -windowtitle
-'umigon-stopwords 0.12 API'
+'umigon-stopwords 0.14 API'
 net.clementlevallois.stopwords
 'C:/Users/levallois/open/nocode-app-functions/umigon-stopwords/src/main/java/module-info.java'
-C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\allclasses-index.html = 1680015884932
-C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\allpackages-index.html = 1680015884938
-C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\element-list = 1680015884860
-C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\help-doc.html = 1680015884978
-C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\index-all.html = 1680015884965
-C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\index.html = 1680015884972
-C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\jquery-ui.overrides.css = 1680015885061
-C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\member-search-index.js = 1680015884953
-C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\module-search-index.js = 1680015884943
-C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\overview-tree.html = 1680015884919
-C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\package-search-index.js = 1680015884947
-C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\script.js = 1680015884992
-C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\search.js = 1680015884997
-C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\stylesheet.css = 1680015884986
-C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\tag-search-index.js = 1680015884956
-C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\type-search-index.js = 1680015884950
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\allclasses-index.html = 1686814038744
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\allpackages-index.html = 1686814038750
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\copy.svg = 1686814039268
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\element-list = 1686814038655
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\help-doc.html = 1686814038805
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\index-all.html = 1686814038780
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\index.html = 1686814038794
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\jquery-ui.overrides.css = 1686814039568
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\member-search-index.js = 1686814038765
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\module-search-index.js = 1686814038754
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\overview-tree.html = 1686814038732
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\package-search-index.js = 1686814038758
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\script.js = 1686814039260
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\search-page.js = 1686814039281
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\search.html = 1686814038788
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\search.js = 1686814039275
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\stylesheet.css = 1686814039252
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\tag-search-index.js = 1686814038770
+C:\Users\levallois\open\nocode-app-functions\umigon-stopwords\target\apidocs\type-search-index.js = 1686814038762
