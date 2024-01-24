@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -60,8 +63,8 @@ public class Stopwords {
     private static final String[] twitterStopWords = {"rt", "w/"};
     private static final String[] commonStopWords = {"and", "for", "nbsp", "http", "https", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "20", "25", "30", "40", "50", "100", "1000"};
 
-    private static Map<String, Map<String, Set<String>>> cache = new HashMap();
-    private static Map<String, Set<String>> cacheTwitter = new HashMap();
+    private static final Map<String, Map<String, Set<String>>> cache = new HashMap();
+    private static final Map<String, Set<String>> cacheTwitter = new HashMap();
 
     public static void main(String args[]) {
         try {
@@ -90,8 +93,6 @@ public class Stopwords {
         Set<String> stopWords = new HashSet();
         Set<String> shortStopWords = new HashSet();
         Map<String, Set<String>> pair = null;
-        InputStream inputStream;
-        URL resource;
 
         for (String commonStopWord : commonStopWords) {
             stopWords.add(commonStopWord);
@@ -101,27 +102,24 @@ public class Stopwords {
             stopWords.add(twitterStopWord);
             shortStopWords.add(twitterStopWord);
         }
+        String PATHLOCALE = ResourcePath.returnRootResources();
 
-        resource = Stopwords.class.getResource(lang + ".txt");
-        if (resource != null) {
-            inputStream = Stopwords.class.getResourceAsStream(lang + ".txt");
+        Path pathResource = Path.of(PATHLOCALE, "src/main/resources/net/clementlevallois/umigon/stopwords/" + lang + ".txt");
+        if (Files.exists(pathResource)) {
             try {
-                BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
-                Stream<String> lines = br.lines();
+                Stream<String> lines = Files.lines(pathResource);
                 lines.forEach(l -> stopWords.add(l));
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println("exception is: " + e.toString());
                 e.printStackTrace();
             }
         }
-        resource = Stopwords.class.getResource(lang + "_short.txt");
-        if (resource != null) {
-            inputStream = Stopwords.class.getResourceAsStream(lang + "_short.txt");
+        pathResource = Path.of(PATHLOCALE, "src/main/resources/net/clementlevallois/umigon/stopwords/" + lang + "_short.txt");
+        if (Files.exists(pathResource)) {
             try {
-                BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
-                Stream<String> lines = br.lines();
+                Stream<String> lines = Files.lines(pathResource);
                 lines.forEach(l -> shortStopWords.add(l));
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println("exception is: " + e.toString());
                 e.printStackTrace();
             }
@@ -138,17 +136,13 @@ public class Stopwords {
     public static Set<String> getStopWordsUsefulInSentimentAnalysis(String lang) {
 
         Set<String> stopWords = new HashSet();
-        InputStream inputStream;
-        URL resource;
-
-        resource = Stopwords.class.getResource(lang + "_stopword_sentiment.txt");
-        if (resource != null) {
-            inputStream = Stopwords.class.getResourceAsStream(lang + "_stopword_sentiment.txt");
+        String PATHLOCALE = ResourcePath.returnRootResources();
+        Path pathResource = Path.of(PATHLOCALE, "src/main/resources/net/clementlevallois/umigon/stopwords/" + lang + "_stopword_sentiment.txt");
+        if (Files.exists(pathResource)) {
             try {
-                BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
-                Stream<String> lines = br.lines();
+                Stream<String> lines = Files.lines(pathResource);
                 lines.forEach(l -> stopWords.add(l));
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println("exception is: " + e.toString());
                 e.printStackTrace();
                 return stopWords;
@@ -160,17 +154,13 @@ public class Stopwords {
     public static Set<String> getScientificStopwordsInEnglish() {
 
         Set<String> stopWords = new HashSet();
-        InputStream inputStream;
-        URL resource;
-
-        resource = Stopwords.class.getResource("scientificstopwords_en.txt");
-        if (resource != null) {
-            inputStream = Stopwords.class.getResourceAsStream("scientificstopwords_en.txt");
+        String PATHLOCALE = ResourcePath.returnRootResources();
+        Path pathResource = Path.of(PATHLOCALE, "src/main/resources/net/clementlevallois/umigon/stopwords/scientificstopwords_en.txt");
+        if (Files.exists(pathResource)) {
             try {
-                BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
-                Stream<String> lines = br.lines();
+                Stream<String> lines = Files.lines(pathResource);
                 lines.forEach(l -> stopWords.add(l));
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println("exception is: " + e.toString());
                 e.printStackTrace();
                 return stopWords;
@@ -182,17 +172,13 @@ public class Stopwords {
     public static Set<String> getScientificStopwordsInFrench() {
 
         Set<String> stopWords = new HashSet();
-        InputStream inputStream;
-        URL resource;
-
-        resource = Stopwords.class.getResource("scientificstopwords_fr.txt");
-        if (resource != null) {
-            inputStream = Stopwords.class.getResourceAsStream("scientificstopwords_fr.txt");
+        String PATHLOCALE = ResourcePath.returnRootResources();
+        Path pathResource = Path.of(PATHLOCALE, "src/main/resources/net/clementlevallois/umigon/stopwords/scientificstopwords_fr.txt");
+        if (Files.exists(pathResource)) {
             try {
-                BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
-                Stream<String> lines = br.lines();
+                Stream<String> lines = Files.lines(pathResource);
                 lines.forEach(l -> stopWords.add(l));
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println("exception is: " + e.toString());
                 e.printStackTrace();
                 return stopWords;
@@ -204,29 +190,23 @@ public class Stopwords {
     public static Set<String> getTwitterStopwords(boolean longList) {
         Set<String> words = new HashSet();
 
-        InputStream inputStream;
-        URL resource;
-
-        resource = Stopwords.class.getResource("twitter_long.txt");
-        if (resource != null) {
-            inputStream = Stopwords.class.getResourceAsStream("twitter_long.txt");
+        String PATHLOCALE = ResourcePath.returnRootResources();
+        Path pathResource = Path.of(PATHLOCALE, "src/main/resources/net/clementlevallois/umigon/stopwords/twitter_long.txt");
+        if (Files.exists(pathResource)) {
             try {
-                BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
-                Stream<String> lines = br.lines();
+                Stream<String> lines = Files.lines(pathResource);
                 lines.forEach(l -> words.add(l));
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println("exception is: " + e.toString());
                 e.printStackTrace();
             }
         }
-        resource = Stopwords.class.getResource("twitter_short.txt");
-        if (resource != null) {
-            inputStream = Stopwords.class.getResourceAsStream("twitter_short.txt");
+        pathResource = Path.of(PATHLOCALE, "src/main/resources/net/clementlevallois/umigon/stopwords/twitter_short.txt");
+        if (Files.exists(pathResource)) {
             try {
-                BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
-                Stream<String> lines = br.lines();
+                Stream<String> lines = Files.lines(pathResource);
                 lines.forEach(l -> words.add(l));
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println("exception is: " + e.toString());
                 e.printStackTrace();
             }
@@ -236,24 +216,16 @@ public class Stopwords {
 
     public static Set<String> getStopwordsValidForAllLanguages() {
         Set<String> words = new HashSet();
-        for (String commonStopWord : commonStopWords) {
-            words.add(commonStopWord);
-        }
-        for (String twitterStopWord : twitterStopWords) {
-            words.add(twitterStopWord);
-        }
+        words.addAll(Arrays.asList(commonStopWords));
+        words.addAll(Arrays.asList(twitterStopWords));
 
-        InputStream inputStream;
-        URL resource;
-
-        resource = Stopwords.class.getResource("stopwords_all_languages.txt");
-        if (resource != null) {
-            inputStream = Stopwords.class.getResourceAsStream("stopwords_all_languages.txt");
+        String PATHLOCALE = ResourcePath.returnRootResources();
+        Path pathResource = Path.of(PATHLOCALE, "src/main/resources/net/clementlevallois/umigon/stopwords/stopwords_all_languages.txt");
+        if (Files.exists(pathResource)) {
             try {
-                BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
-                Stream<String> lines = br.lines();
+                Stream<String> lines = Files.lines(pathResource);
                 lines.forEach(l -> words.add(l));
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println("exception is: " + e.toString());
                 e.printStackTrace();
             }
