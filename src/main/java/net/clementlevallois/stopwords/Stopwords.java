@@ -84,10 +84,11 @@ public class Stopwords {
 
     }
 
-    public static Map<String, Set<String>> getStopWords(String lang) {
+    public static Map<String, Set<String>> getStopWords(String singleLanguageCode) {
+        
 
-        if (cache.containsKey(lang)) {
-            return cache.get(lang);
+        if (cache.containsKey(singleLanguageCode)) {
+            return cache.get(singleLanguageCode);
         }
 
         Set<String> stopWords = new HashSet();
@@ -104,7 +105,7 @@ public class Stopwords {
         }
         String PATHLOCALE = ResourcePath.returnRootResources();
 
-        Path pathResource = Path.of(PATHLOCALE, "src/main/resources/net/clementlevallois/umigon/stopwords/" + lang + ".txt");
+        Path pathResource = Path.of(PATHLOCALE, "src/main/resources/net/clementlevallois/umigon/stopwords/" + singleLanguageCode + ".txt");
         if (Files.exists(pathResource)) {
             try {
                 Stream<String> lines = Files.lines(pathResource);
@@ -114,7 +115,7 @@ public class Stopwords {
                 e.printStackTrace();
             }
         }
-        pathResource = Path.of(PATHLOCALE, "src/main/resources/net/clementlevallois/umigon/stopwords/" + lang + "_short.txt");
+        pathResource = Path.of(PATHLOCALE, "src/main/resources/net/clementlevallois/umigon/stopwords/" + singleLanguageCode + "_short.txt");
         if (Files.exists(pathResource)) {
             try {
                 Stream<String> lines = Files.lines(pathResource);
@@ -128,7 +129,7 @@ public class Stopwords {
         pair = new HashMap();
         pair.put("short", shortStopWords);
         pair.put("long", stopWords);
-        cache.put(lang, pair);
+        cache.put(singleLanguageCode, pair);
 
         return pair;
     }
@@ -156,6 +157,24 @@ public class Stopwords {
         Set<String> stopWords = new HashSet();
         String PATHLOCALE = ResourcePath.returnRootResources();
         Path pathResource = Path.of(PATHLOCALE, "src/main/resources/net/clementlevallois/umigon/stopwords/scientificstopwords_en.txt");
+        if (Files.exists(pathResource)) {
+            try {
+                Stream<String> lines = Files.lines(pathResource);
+                lines.forEach(l -> stopWords.add(l));
+            } catch (IOException e) {
+                System.out.println("exception is: " + e.toString());
+                e.printStackTrace();
+                return stopWords;
+            }
+        }
+        return stopWords;
+    }
+
+    public static Set<String> getFirstNames(String languageTwoLetters) {
+
+        Set<String> stopWords = new HashSet();
+        String PATHLOCALE = ResourcePath.returnRootResources();
+        Path pathResource = Path.of(PATHLOCALE, "src/main/resources/net/clementlevallois/umigon/stopwords/firstnames_" + languageTwoLetters + ".txt");
         if (Files.exists(pathResource)) {
             try {
                 Stream<String> lines = Files.lines(pathResource);

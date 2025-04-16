@@ -33,6 +33,7 @@ public final class StopWordsRemover {
     private List<String> listGeneralStopwordsShort = new ArrayList();
     private List<String> stopwordsLong = new ArrayList();
     private Map<String, Set<String>> stopWordsLongAndShort;
+    private String language;
 
     public static void main(String[] args) throws Exception {
         Set<String> fieldSpecificTerms = new HashSet();
@@ -45,8 +46,9 @@ public final class StopWordsRemover {
         System.out.println(shouldItBeRemoved);
     }
 
-    public StopWordsRemover(int minWordLength, String lang) {
-        stopWordsLongAndShort = Stopwords.getStopWords(lang);
+    public StopWordsRemover(int minWordLength, String language) {
+        this.language = language;
+        stopWordsLongAndShort = Stopwords.getStopWords(language);
         stopwordsLong = new ArrayList((Set<String>) stopWordsLongAndShort.get("long"));
         this.minWordLength = minWordLength;
         nbStopWordsShort = Math.min(nbStopWordsShort, Math.max(0, (stopwordsLong.size() - 1)));
@@ -182,8 +184,16 @@ public final class StopWordsRemover {
         if (setRemoveWords.contains(entryWord)) {
             write = false;
         }
-
         return !write;
-
     }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+    
+    
 }
