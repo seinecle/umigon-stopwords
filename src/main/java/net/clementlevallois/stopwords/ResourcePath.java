@@ -22,7 +22,7 @@ public class ResourcePath {
 
             PATHLOCALE = "C:\\Users\\" + userName + "\\open\\nocode-app-functions\\umigon-static-files\\";
         } else {
-            PATHLOCALE = "/home/waouh/nocodeapp-web/umigon-static-files/";
+            PATHLOCALE = "/home/waouh/nocodeapp-next/umigon-static-files/";
         }
 
         return PATHLOCALE;
